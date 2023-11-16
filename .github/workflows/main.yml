@@ -23,9 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r req.txt
 
-    
-    - name: host server
-      run: python -m http.server 8000
+  
 
     - name: Run Selenium tests
       run: python test_main.py
