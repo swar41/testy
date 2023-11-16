@@ -25,7 +25,7 @@ jobs:
 
     
     - name: host server
-      run: python http.server 8000
+      run: python -m http.server 8000
 
     - name: Run Selenium tests
       run: python test_main.py
