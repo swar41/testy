@@ -2,13 +2,19 @@ import selenium
 import os
 import time
 
-
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-driver = selenium.webdriver.Chrome(ChromeDriverManager())
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 
+driver = webdriver.Chrome(
+    service=Service(ChromeDriverManager().install()),
+    options=chrome_options
+)
 
 def testurl():
     driver.get(os.getenv('BASEURL'))
