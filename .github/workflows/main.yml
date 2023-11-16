@@ -23,7 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r req.txt
 
-  
+        pip install selenium webdriver_manager
 
     - name: Run Selenium tests
       run: python test_main.py
