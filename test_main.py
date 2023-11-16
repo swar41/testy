@@ -11,10 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 
-driver = webdriver.Chrome(
-    service=Service(ChromeDriverManager().install()),
-    options=chrome_options
-)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=chrome_options)
 
 def testurl():
     driver.get(os.getenv('BASEURL'))
