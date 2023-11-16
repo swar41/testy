@@ -5,7 +5,7 @@ import time
 
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
+from webdriver-manager.chrome import ChromeDriverManager
 
 driver = selenium.webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
