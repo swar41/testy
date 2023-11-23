@@ -1,18 +1,20 @@
 import selenium
 import os
 import time
-
+import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
-
+@pytest.fixture(autouse=True, scope='class')
+def setup(request):
+    options = Options()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    request.cls.driver = driver
+   
 def testurl():
     driver.get(os.getenv('BASEURL'))
     driver.maximize_window()
@@ -30,3 +32,5 @@ def testcred():
 
 
 time.sleep(10)
+ yield
+    driver.quit()
