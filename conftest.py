@@ -26,5 +26,4 @@ def setup(request):
     request.cls.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 
-    yield request.cls.driver
     request.cls.driver.close()
