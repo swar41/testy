@@ -1,20 +1,27 @@
-# .github/workflows/test01.yaml
-name: test01
+name: Python Tests
+
 on:
-     jobs:
-       test01:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Check out this repo
-           uses: actions/checkout@v2
-     #Setup  Python   
-         - name: Set up Python
-           uses: actions/setup-python@v2
-           with:
-            python-version: '3.9'
-         - name: Install software
-           run: sudo apt-get install -y chromium-browser
-         - name: Install the necessary packages
-           run: pip install pytest
-         - name: Run the PytTest script
-           run: pytest test_main.py
+  push:
+    branches:
+      - main  # Change to the name of your main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12.0  # Choose the Python version you need
+
+    - name: Install dependencies
+      run: |
+        pip install pytest
+        
+
+    - name: Run tests
+      run:  python test_main.py
