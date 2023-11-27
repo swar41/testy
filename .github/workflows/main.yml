@@ -22,12 +22,15 @@ jobs:
       run: |
         pip install pytest 
         pip install selenium webdriver_manager
-        pip install pytest-cov 
+        pip install pytest-cov coverage
+        
         
 
     - name: Run tests
       run: 
          python test_main.py --cov=./ --cov-report=xml
+         coverage report
+
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
