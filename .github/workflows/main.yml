@@ -20,14 +20,14 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install pytest selenium 
-        pip install webdriver_manager
-        
+        pip install pytest 
+        pip install selenium webdriver_manager
+        pip install pytest-cov 
         
 
     - name: Run tests
       run: 
-         pytest --cov=./ --cov-report=xml
+         python test_main.py --cov=./ --cov-report=xml
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
