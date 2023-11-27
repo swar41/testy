@@ -31,7 +31,7 @@ jobs:
          python test_main.py --cov=./ --cov-report=xml
     - name: coverage report
       run : 
-         coverage run -m pytest test_main.py
+         pytest test_main.py
          coverage report
 
 
