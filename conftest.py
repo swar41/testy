@@ -2,6 +2,7 @@ import pytest
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.service import ChromeType
 from selenium import webdriver
 
 
