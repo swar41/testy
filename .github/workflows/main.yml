@@ -32,9 +32,8 @@ jobs:
          python test_main.py
     - name: coverage report
       run : 
-          pytest test_main.py
-          coverage run -m pytest
-          coverage report
+         
+          pytest --cov=.
 
 
 
