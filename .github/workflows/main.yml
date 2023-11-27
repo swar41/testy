@@ -29,11 +29,11 @@ jobs:
 
     - name: Run tests
       run: 
-         python test_main.py
+         python test_main.py --cov=.
     - name: coverage report
       run : 
          
-          pytest --cov=.
+          pytest 
 
 
 
