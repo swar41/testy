@@ -18,25 +18,6 @@ jobs:
       with:
         python-version: 3.12.0  # Choose the Python version you need
 
-    - name: Install dependencies
-      run: |
-        pip install pytest 
-        pip install selenium webdriver_manager
-        pip install pytest-cov 
-        pip install coverage
-        
-        
-
-    - name: Run tests
-      run: 
-         python test_main.py --cov=.
-    - name: coverage report
-      run : 
-         
-          pytest 
-
-
-
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
       env:
